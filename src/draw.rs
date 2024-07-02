@@ -7,6 +7,10 @@ pub fn to_coordinate(game_coordinate: i32) -> f64 {
     (game_coordinate as f64) * BLOCK_SIZE
 }
 
+pub fn to_coordinate_u32(game_coordinate: i32) -> u32 {
+    to_coordinate(game_coordinate) as u32
+}
+
 pub fn draw_block(x: i32, y: i32, color: Color, context: &Context, graphical_buffer: &mut G2d) {
     let normalized_x = to_coordinate(x);
     let normalized_y = to_coordinate(y);
@@ -17,7 +21,7 @@ pub fn draw_block(x: i32, y: i32, color: Color, context: &Context, graphical_buf
               graphical_buffer);
 }
 
-fn draw_rectangle(x: i32, y: i32, width: i32, height: i32, color: Color, context: &Context, graphical_buffer: &mut G2d) {
+pub fn draw_rectangle(x: i32, y: i32, width: i32, height: i32, color: Color, context: &Context, graphical_buffer: &mut G2d) {
     let normalized_x = to_coordinate(x);
     let normalized_y = to_coordinate(y);
 
